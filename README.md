@@ -20,7 +20,7 @@ curl -X POST \
 
 ```
 
-curl -s --user 'api:pubkey-dafe709c500222ce3b6cbdd517825421' \
+curl -s --user 'api:someapikey' \
     https://api.mailgun.net/v3/mail.fabmedic.net/messages \
     -F from='Excited User mail.fabmedic.net' \
     -F to=qasim@mail.fabmedic.net \
