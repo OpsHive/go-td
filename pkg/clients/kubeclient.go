@@ -48,9 +48,9 @@ func GetKubeconfigPath(env string) (string, error) {
 
 	switch env {
 	case "dev":
-		kubeconfigPath = "kubeconfig.yaml" // Set your development kubeconfig path
+		kubeconfigPath = "./config/kubeconfig-dev.yaml" // Set your development kubeconfig path
 	case "prod":
-		kubeconfigPath = "kubeconfig-prod.yaml" // Set your production kubeconfig path
+		kubeconfigPath = "./config/kubeconfig-prod.yaml" // Set your production kubeconfig path
 	default:
 		return "", fmt.Errorf("Invalid environment: %s", env)
 	}
