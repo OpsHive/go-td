@@ -1,0 +1,18 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: myfile
+  labels:
+    app: secret
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+     - name: tripon
+      containers:
+     - image: bazihassan/prod-instance-template:v0.0.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NEXT_PUBLIC_COMPANY_ID
+          value: 996a5117-c4a3-475e-b823-f0eb325e1fb6

@@ -1,0 +1,152 @@
+basePath: /api/v1
+host: localhost:8282
+info:
+  contact:
+    email: qasim@opshive.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: this is Tenant deployment api which help to deploy user tenants when
+    user signup.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Tenant Deploy API
+  version: "1.0"
+paths:
+  /appCreate:
+    post:
+      consumes:
+      - application/json
+      description: Deploy a new app by providing a JSON object with the "name" property.
+      parameters:
+      - description: app Name
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: app created successfully
+          schema:
+            type: string
+      summary: Deploy app with helm
+      tags:
+      - helm chart
+  /appDelete:
+    post:
+      consumes:
+      - application/json
+      description: Delete deployed app by providing a JSON object with the "name"
+        property.
+      parameters:
+      - description: app Name
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: app Deleted successfully
+          schema:
+            type: string
+      summary: Deploy app with helm
+      tags:
+      - helm chart
+  /appGet:
+    get:
+      description: app status "name" property.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: app status
+          schema:
+            type: string
+      summary: Deploy app with helm
+      tags:
+      - helm chart
+  /healthcheck:
+    get:
+      consumes:
+      - application/json
+      description: do ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: ping example
+      tags:
+      - healthcheck
+  /tenantCreate:
+    post:
+      consumes:
+      - application/json
+      description: Deploy a new Tenant by providing a JSON object with the "name"
+        property.
+      parameters:
+      - description: Tenant Name
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Tenant applied successfully
+          schema:
+            type: string
+      summary: Deploy Tenant
+      tags:
+      - Tenant
+  /tenantDelete:
+    post:
+      consumes:
+      - application/json
+      description: Delete Tenant by name
+      parameters:
+      - description: Tenant Name
+        in: body
+        name: name
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Tenant Deleted successfully
+          schema:
+            type: string
+      summary: Delete Tenant
+      tags:
+      - Tenant
+  /tenantGet:
+    get:
+      consumes:
+      - application/json
+      description: List Tenant
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: get Tenant
+      tags:
+      - Tenant
+schemes:
+- http
+swagger: "2.0"
